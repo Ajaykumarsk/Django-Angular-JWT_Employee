@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="vh-100 bg-image"
+        style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-10 col-md-8 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-2">Create an account</h2>
+
+                                <form (ngSubmit)="register()">
+                                    <div class="form-group">
+                                        <label for="username">Your Name</label>
+                                        <input type="text" id="username" class="form-control form-control"
+                                            [(ngModel)]="username" name="username" required  placeholder="Enter Username">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="email">Your Email</label>
+                                        <input type="email" id="email" class="form-control form-control"
+                                            [(ngModel)]="email" name="email" required  placeholder="Enter Email">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" id="password" class="form-control form-control"
+                                            [(ngModel)]="password" name="password" required  placeholder="Enter Password">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Repeat Password</label>
+                                        <input type="password" id="confirmPassword"
+                                            class="form-control form-control" [(ngModel)]="confirmPassword"
+                                            name="confirmPassword" required  placeholder="Enter Confirm Password">
+                                    </div>
+
+                                    <button type="submit"
+                                        class="btn btn-success btn-block btn-m gradient-custom-2 text-body">Register</button>
+
+                                    <div *ngIf="registrationError" class="alert alert-danger mt-3"
+                                        role="alert">{{ registrationError }}</div>
+
+                                    <p class="text-center text-muted mt-5 mb-0">Already have an account?
+                                        <a href="login" class="fw-bold text-body"><u>Login here</u></a>
+                                    </p>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and Angular scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+
+</body>
+
+</html>

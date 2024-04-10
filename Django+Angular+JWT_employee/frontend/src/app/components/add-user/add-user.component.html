@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Employees</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CSS (for icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+      
+    <!-- Sidebar -->
+    <div class="sidebar bg-light">
+      <div class="sidebar-brand">Dashboard</div>
+      <div class="sidebar-nav ">
+          <a href="/dashboard" class="sidebar-item">
+              <i class="fas fa-tachometer-alt fa-fw mr-2"></i> Dashboard
+          </a>
+          <a href="/user" class="sidebar-item">
+              <i class="fas fa-users fa-fw mr-2"></i> View Employees
+          </a>
+          <a href="/add" class="sidebar-item">
+              <i class="fas fa-user-plus fa-fw mr-2"></i> Add Employees
+          </a>
+          <!-- Add more sidebar items with icons as needed -->
+          <!-- Logout link -->
+      <a (click)="logout()" class="sidebar-item" style="position: absolute; bottom: 20px; left: 20px;">
+          <i class="fas fa-sign-out-alt fa-fw mr-2"></i> Logout
+      </a>
+      </div>
+  </div>
+  <div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" ><i class="fas fa-user"></i> Welcome, {{ name }}</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+ 
+        <!--Form to add user  name: string email: string gender: string-->
+        <div class="my-4">
+          <div class="mx-auto w-50" style="max-width: 100%;">
+            <h2 class="text-center mb-3">Add Employee Details</h2>
+            <form [formGroup]="form" (ngSubmit)="addUser()">
+              <!-- Name -->
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" formControlName="name" type="text" class="form-control" placeholder="Enter Name">
+              </div>
+        
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="email" class="form-control" placeholder="Enter Email">
+              </div>
+        
+              <!-- Gender -->
+              <div class="form-group">
+                <label>Gender</label><br>
+                <div class="form-check form-check-inline">
+                  <input formControlName="gender" class="form-check-input" type="radio" value="male">
+                  <label class="form-check-label">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input formControlName="gender" class="form-check-input" type="radio" value="female">
+                  <label class="form-check-label">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input formControlName="gender" class="form-check-input" type="radio" value="others">
+                  <label class="form-check-label">Others</label>
+                </div>
+              </div>
+        
+              <!-- Department -->
+              <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" formControlName="department" class="form-control">
+                  <option value="sales">Sales</option>
+                  <option value="operations">Operations</option>
+                  <option value="engineering">Engineering</option>
+                </select>
+              </div>
+        
+              <!-- Location -->
+              <div class="form-group">
+                <label for="location">Location</label>
+                <select id="location" formControlName="location" class="form-control">
+                  <option value="bangalore">Bangalore</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="delhi">Delhi</option>
+                </select>
+              </div>
+        
+              <!-- Date of Joining -->
+              <div class="form-group">
+                <label for="dateOfJoining">Date of Joining</label>
+                <input id="dateOfJoining" formControlName="dateOfJoining" type="date" class="form-control">
+              </div>
+        
+              <!-- Submit Button -->
+              <button type="submit" [disabled]="!form.valid" class="btn btn-primary w-100">Submit</button>
+            </form>
+          </div>
+        </div>
+        
+    <!-- Footer -->
+<footer class="footer">
+  <div class="container text-center" >
+      <p>&copy; 2024 Ajay Kumar S K. All rights reserved.</p>
+  </div>
+</footer>
+<!-- End of Footer -->
+</div>
+</body>
+</html>
